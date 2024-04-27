@@ -1,6 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 function NavbarComp(props) {
+  const navigate = useNavigate();
   return (
     <div
       className={`${props.class} flex z-[1] h-auto relative items-center justify-between gap-2 pt-1 px-2 text-[white]`}
@@ -18,8 +20,8 @@ function NavbarComp(props) {
                 }   ease-linear rounded-t-md transition-[12s] p-2 gap-2 flex justify-center items-center`}
                 type="button"
                 onClick={() => {
-                  console.log(">>>", props.activeColor);
                   props.action(item.link);
+                  navigate(item.link);
                 }}
               >
                 {item.icon}
