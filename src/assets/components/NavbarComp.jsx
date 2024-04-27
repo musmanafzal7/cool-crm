@@ -3,16 +3,24 @@ import PropTypes from "prop-types";
 function NavbarComp(props) {
   return (
     <div
-      className={`${props.class} flex items-center justify-between gap-2 pt-1 px-2 text-[white]`}
+      className={`${props.class} flex z-[1] h-auto relative items-center justify-between gap-2 pt-1 px-2 text-[white]`}
     >
-      <div className="flex gap-2">
+      <div className="flex gap-2 ">
         <FontAwesomeIcon className="self-center" icon={props.icon} />
         {props.buttons.map((item) => {
           return (
             <>
               <button
-                className={` ${props.buttonClass}  ease-linear transition-[12s] p-2 gap-2 flex justify-center items-center`}
+                className={` ${
+                  item.link == props.page
+                    ? props.activeColor
+                    : props.buttonClass
+                }   ease-linear rounded-t-md transition-[12s] p-2 gap-2 flex justify-center items-center`}
                 type="button"
+                onClick={() => {
+                  console.log(">>>", props.activeColor);
+                  props.action(item.link);
+                }}
               >
                 {item.icon}
                 {item.label}
@@ -21,7 +29,7 @@ function NavbarComp(props) {
           );
         })}
       </div>
-      <div className="flex gap-[2em] items-center justify-center">
+      <div className="flex gap-[2em]  items-center justify-center">
         <props.rightSection></props.rightSection>
       </div>
     </div>
@@ -32,6 +40,9 @@ export default NavbarComp;
 NavbarComp.propTypes = {
   buttons: PropTypes.array.isRequired,
   icon: PropTypes.object,
+  page: PropTypes.object,
   class: PropTypes.string,
+  action: PropTypes.func,
   buttonClass: PropTypes.string.isRequired,
+  activeColor: PropTypes.string.isRequired,
 };

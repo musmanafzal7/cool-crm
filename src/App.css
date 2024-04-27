@@ -5,3 +5,28 @@
   margin: 0 auto;
   /* padding: 2rem; */
 }
+.extend-search-form {
+  animation: fadeInDown 0.5s ease; /* Use fadeInDown animation with duration of 0.5s and easing function */
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px); /* Move element up by 20px */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Restore original position */
+  }
+}
+
+::-webkit-scrollbar {
+  background-color: #000000;
+  border-radius: 20px;
+  width: 5px;
+  
+}
+button:active {
+  transform: scale(0.95);
+  transition: transform 0.8s ease;
+}
