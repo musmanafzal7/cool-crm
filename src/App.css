@@ -19,12 +19,21 @@
     transform: translateY(0); /* Restore original position */
   }
 }
+::-webkit-scrollbar{
+background-color: #000000;
+width: 10px;
+}
+::-webkit-scrollbar-track {
+  background-color: #818181;
+  border-radius: 10px;
 
-::-webkit-scrollbar {
-  background-color: #000000;
-  border-radius: 20px;
-  width: 5px;
-  
+  width: 2px;
+}
+::-webkit-scrollbar-thumb {
+  height: 10px;
+  background-color: black;
+  border-radius: 10px;
+  /* width: 0px;  */
 }
 button:active {
   transform: scale(0.95);
