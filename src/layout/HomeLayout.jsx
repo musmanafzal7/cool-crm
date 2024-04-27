@@ -104,17 +104,22 @@ function HomeLayout(props) {
   function rightSection2() {
     return (
       <div className="flex gap-2 justify-end">
-        <button className="bg-green-400 rounded-md py-1 px-4">
-          New Customer
-        </button>
-        <button
-          onClick={() => {
-            props.setExtendSearch(!props.extendSearch);
-          }}
-          className="bg-blue-400 rounded-md py-1 px-4"
-        >
-          Extend Search
-        </button>
+        {category == "/" && (
+          <>
+            {" "}
+            <button className="bg-green-400 rounded-md py-1 px-4">
+              New Customer
+            </button>
+            <button
+              onClick={() => {
+                props.setExtendSearch(!props.extendSearch);
+              }}
+              className="bg-blue-400 rounded-md py-1 px-4"
+            >
+              Extend Search
+            </button>
+          </>
+        )}
         <input type="text" />
       </div>
     );
