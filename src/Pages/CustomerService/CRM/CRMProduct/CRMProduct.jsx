@@ -1,6 +1,8 @@
-import CRMTable from "../../../assets/components/Tables/CRMTable";
+import ExtendSearchForm from "../../../../assets/components/Forms/ExtendSearchForm";
+import CRMTable from "../../../../assets/components/Tables/CRMTable";
+import PropTypes from "prop-types";
 
-function CUstomerActivities() {
+function HomeView(props) {
   const columns = [
     {
       title: "Name",
@@ -37,14 +39,14 @@ function CUstomerActivities() {
       sortDirections: ["descend"],
     },
     {
-      title: "Contact",
-      dataIndex: "Contact",
+      title: "Code",
+      dataIndex: "code",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     },
     {
-      title: "Contact Phone",
-      dataIndex: "ContactPhone",
+      title: "Address",
+      dataIndex: "address",
       // filters: [
       //   {
       //     text: "London",
@@ -58,76 +60,111 @@ function CUstomerActivities() {
       // onFilter: (value, record) => record.address.indexOf(value) === 0,
     },
     {
-      title: "Description",
-      dataIndex: "Description",
+      title: "City",
+      dataIndex: "City",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     },
     {
-      title: "Date",
-      dataIndex: "Date",
+      title: "Zip Code",
+      dataIndex: "Zip Code",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     },
     {
-      title: "Result/Status",
-      dataIndex: "Result",
+      title: "Phone",
+      dataIndex: "Phone",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     },
     {
-      title: "Owner",
-      dataIndex: "Owner",
+      title: "Type - Customer",
+      dataIndex: "TypeCustomer",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     },
     {
-      title: "Assign to",
-      dataIndex: "Assign",
+      title: "Representative",
+      dataIndex: "Representative",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     },
     {
-      title: "Type",
-      dataIndex: "Type",
+      title: "CSR",
+      dataIndex: "CSR",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     },
     {
-      title: "Priority",
-      dataIndex: "Priority",
+      title: "Active",
+      dataIndex: "Active",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     },
     {
-      title: "Due Date",
-      dataIndex: "dueDate",
+      title: "Email",
+      dataIndex: "Email",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.age - b.age,
+    },
+    {
+      title: "Website",
+      dataIndex: "Website",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.age - b.age,
+    },
+    {
+      title: "Terms",
+      dataIndex: "Terms",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.age - b.age,
+    },
+    {
+      title: "Source",
+      dataIndex: "Source",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     },
   ];
   const data = [
     {
-      Name: "Customer Name",
-      Contact: "Contact",
-      ContactPhone: "Contact Phone",
-      Description: "Description (Activity)",
-      Date: "Date",
-      Result: "Result/Status",
-      Owner: "Owner",
-      Assigned: "Assigned To",
-      Type: "Type",
-      Priority: "Priority",
-      DueDate: "Due Date",
+      key: "1",
+      name: "John Brown",
+      address: "New York No. 1 Lake Park",
+      City: "lahore",
+      State: "Punjab",
+      ZipCode: "2939",
+      Phone: "209029092",
+      TypeCustomer: true,
+      Representative: "nan",
+      CSR: "kdjk",
+      Active: "yes",
+      Email: "iman@gmail.com",
+      Website: "immnhejj",
+      Terms: "jdhjh",
+      Source: "bdjbdnb",
     },
   ];
 
   return (
     <>
-      {" "}
+      {props.extendSearch && (
+        <ExtendSearchForm
+          action={(e) => {
+            props.setExtendSearch(e);
+          }}
+          dynamicClass={
+            props.extendSearch ? "extend-search-form " : "extend-search-form-ou"
+          }
+        />
+      )}
       <CRMTable columns={columns} rows={data} />
     </>
   );
 }
 
-export default CUstomerActivities;
+export default HomeView;
+HomeView.propTypes = {
+  extendSearch: PropTypes.string.isRequired,
+  setExtendSearch: PropTypes.func,
+};
