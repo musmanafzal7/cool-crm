@@ -1,4 +1,3 @@
-
 #root {
   max-width: 1540px;
   width: 100%;
@@ -12,12 +11,14 @@
 
 @keyframes fadeInDown {
   0% {
-    opacity: 0;
-    transform: translateY(-100px); /* Move element up by 20px */
+    /* opacity: 0; */
+    height: 0%;
+    /* transform: translateY(-100px); Move element up by 20px */
   }
   100% {
-    opacity: 1;
-    transform: translateY(0); /* Restore original position */
+    /* opacity: 1; */
+    height: 25%;
+    /* transform: translateY(0); Restore original position */
   }
 }
 /* ::-webkit-scrollbar {
@@ -41,8 +42,7 @@ button:active {
   transform: scale(0.95);
   transition: transform 0.8s ease;
 }
-.ant-card-head{
-background-color: #1E3A8A !important;
-color: white !important;
-
+.ant-card-head {
+  background-color: #1e3a8a !important;
+  color: white !important;
 }
