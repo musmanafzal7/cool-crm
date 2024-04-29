@@ -11,32 +11,12 @@
 
 @keyframes fadeInDown {
   0% {
-    /* opacity: 0; */
     height: 0%;
-    /* transform: translateY(-100px); Move element up by 20px */
   }
   100% {
-    /* opacity: 1; */
     height: 25%;
-    /* transform: translateY(0); Restore original position */
   }
 }
-/* ::-webkit-scrollbar {
-  background-color: #000000;
-  width: 10px;
-}
-::-webkit-scrollbar-track {
-  background-color: #818181;
-  border-radius: 10px;
-
-  width: 2px;
-}
-::-webkit-scrollbar-thumb {
-  height: 10px;
-  background-color: black;
-  border-radius: 10px;
-  
-} */
 
 button:active {
   transform: scale(0.95);
