@@ -5,9 +5,9 @@ function NavbarComp(props) {
   const navigate = useNavigate();
   return (
     <div
-      className={`${props.class} flex z-[1] h-auto relative items-center justify-between gap-2 pt-1 px-2 text-[white]`}
+      className={`${props.class} flex z-[1] flex-wrap h-auto relative items-center justify-between gap-2 pt-1 px-2 text-[white]`}
     >
-      <div className="flex gap-2 ">
+      <div className="flex gap-2  flex-wrap">
         <FontAwesomeIcon className="self-center" icon={props.icon} />
         {props.buttons.map((item) => {
           return (
@@ -31,7 +31,7 @@ function NavbarComp(props) {
           );
         })}
       </div>
-      <div className="flex gap-[2em]  items-center justify-center">
+      <div className="flex gap-2 max-md:gap-1.5  items-center justify-center">
         <props.rightSection></props.rightSection>
       </div>
     </div>
