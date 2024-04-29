@@ -17,13 +17,14 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import NavbarComp from "../assets/components/NavbarComp";
 import { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
 function HomeLayout(props) {
   const [page, setPage] = useState("Customer-Service");
   const [subPage, setSubPage] = useState("CRM");
-  const [category, setCategory] = useState("/");
+
+  const Navigate = useNavigate();
   const buttons = [
     {
       label: "Customer Service",
@@ -104,10 +105,16 @@ function HomeLayout(props) {
   function rightSection2() {
     return (
       <div className="flex gap-2 justify-end">
-        {category == "/" && (
+        {props.category == "/" && (
           <>
             {" "}
-            <button className="bg-green-400 rounded-md py-1 px-4">
+            <button
+              onClick={() => {
+                props.setCategory("");
+                Navigate("/product/new-customer");
+              }}
+              className="bg-green-400 rounded-md py-1 px-4"
+            >
               New Customer
             </button>
             <button
@@ -157,9 +164,9 @@ function HomeLayout(props) {
         return <></>;
       },
       action: (e) => {
-        setCategory(e);
+        props.setCategory(e);
       },
-      page: category,
+      page: props.category,
     },
   ];
   return (
@@ -191,4 +198,6 @@ export default HomeLayout;
 HomeLayout.propTypes = {
   extendSearch: PropTypes.string.isRequired,
   setExtendSearch: PropTypes.func,
+  category: PropTypes.string.isRequired,
+  setCategory: PropTypes.func,
 };

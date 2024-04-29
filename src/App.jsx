@@ -9,7 +9,7 @@ import CRMNewCustomer from "./Pages/CustomerService/CRM/CRMProduct/CRMNewCustome
 
 function App() {
   const [extendSearch, setExtendSearch] = useState(true);
-
+  const [category, setCategory] = useState("/");
   return (
     <>
       <BrowserRouter>
@@ -20,6 +20,8 @@ function App() {
               <HomeLayout
                 extendSearch={extendSearch}
                 setExtendSearch={setExtendSearch}
+                category={category}
+                setCategory={setCategory}
               />
             }
           >
@@ -33,7 +35,12 @@ function App() {
                 />
               }
             />
-            <Route path="/product/new-customer" element={<CRMNewCustomer />} />
+            <Route
+              path="/product/new-customer"
+              element={
+                <CRMNewCustomer category={category} setCategory={setCategory} />
+              }
+            />
             <Route path="/projects" element={<CustomerProjects />} />
             <Route path="/activities" element={<CUstomerActivities />} />
           </Route>

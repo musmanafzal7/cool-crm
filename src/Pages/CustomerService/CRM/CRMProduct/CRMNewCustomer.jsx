@@ -9,7 +9,9 @@ import {
   Select,
   Space,
 } from "antd";
-const CRMNewCustomer = () => {
+import { useNavigate } from "react-router-dom";
+const CRMNewCustomer = (props) => {
+  const Navigate = useNavigate();
   return (
     <>
       <Space direction="vertical" size={16}>
@@ -17,9 +19,34 @@ const CRMNewCustomer = () => {
           size="default"
           extra={
             <div className="flex items-center gap-2">
-              <Button type="primary" style={{backgroundColor:'#4ADE80'}}>Save</Button>
-              <Button type="default">Cancel</Button>
-              <Button type="primary">Save & Close</Button>
+              <Button
+                type="primary"
+                onClick={() => {
+                  props.setCategory("/");
+                  Navigate("/");
+                }}
+                style={{ backgroundColor: "#4ADE80" }}
+              >
+                Save
+              </Button>
+              <Button
+                type="default"
+                onClick={() => {
+                  props.setCategory("/");
+                  Navigate("/");
+                }}
+              >
+                Cancel
+              </Button>
+              <Button
+                onClick={() => {
+                  props.setCategory("/");
+                  Navigate("/");
+                }}
+                type="primary"
+              >
+                Save & Close
+              </Button>
             </div>
           }
           title="Customer"
