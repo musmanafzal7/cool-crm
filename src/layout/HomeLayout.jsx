@@ -171,23 +171,25 @@ function HomeLayout(props) {
   ];
   return (
     <>
-      <div className="flex flex-col h-[100vh]">
-        {NavbarArray.map((navbar) => {
-          return (
-            <>
-              <NavbarComp
-                buttonClass={navbar.buttonClass}
-                class={navbar.class}
-                buttons={navbar.buttons}
-                icon={navbar.icon}
-                rightSection={navbar.rightSection}
-                activeColor={navbar?.activeColor}
-                action={navbar?.action}
-                page={navbar?.page}
-              />
-            </>
-          );
-        })}
+      <div className="flex flex-col h-[100vh] overflow-y-auto">
+        <div className="sticky top-0 z-10">
+          {NavbarArray.map((navbar) => {
+            return (
+              <>
+                <NavbarComp
+                  buttonClass={navbar.buttonClass}
+                  class={navbar.class}
+                  buttons={navbar.buttons}
+                  icon={navbar.icon}
+                  rightSection={navbar.rightSection}
+                  activeColor={navbar?.activeColor}
+                  action={navbar?.action}
+                  page={navbar?.page}
+                />
+              </>
+            );
+          })}
+        </div>
         <Outlet />
       </div>
     </>

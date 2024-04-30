@@ -10,6 +10,7 @@ import {
   Space,
 } from "antd";
 import { useNavigate } from "react-router-dom";
+import TabsComp from "../../../../assets/components/Tabs/TabsComp";
 const CRMNewCustomer = (props) => {
   const Navigate = useNavigate();
   return (
@@ -17,6 +18,8 @@ const CRMNewCustomer = (props) => {
       <Space direction="vertical" size={16}>
         <Card
           size="default"
+          className="overflow-y-auto max-h-[calc(100vh - 500px)] "
+          styles={{ maxHeight: "calc(100vh - 500px)" }}
           extra={
             <div className="flex items-center gap-2">
               <Button
@@ -239,6 +242,7 @@ const CRMNewCustomer = (props) => {
               </Button>
             </Form.Item>
           </Form>
+          <TabsComp />
         </Card>
       </Space>
     </>

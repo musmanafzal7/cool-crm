@@ -26,3 +26,6 @@ button:active {
   background-color: #1e3a8a !important;
   color: white !important;
 }
+.ant-tabs-tab-btn{
+color: white !important;
+}
